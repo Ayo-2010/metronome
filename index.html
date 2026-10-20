@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempo/01 — Studio Metronome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="rig" aria-label="Studio metronome">
+    <header class="rig-head">
+      <div class="brand">
+        <span class="led" aria-hidden="true"></span>
+        <span>TEMPO / 01</span>
+      </div>
+      <span class="status" id="status">READY</span>
+    </header>
+
+    <section class="display" aria-label="Tempo and beat display">
+      <div class="tempo">
+        <p class="unit">BPM</p>
+        <p class="bpm-number"><span id="bpm">120</span></p>
+        <p class="meter" id="meterLabel">4 / 4</p>
+      </div>
+      <div class="pulse">
+        <div id="beats" class="beats" aria-hidden="true"></div>
+        <p class="bar-label">Bar <strong id="barCount">0</strong></p>
+      </div>
+    </section>
+
+    <div class="transport">
+      <button id="startBtn" class="start-btn" type="button">
+        <span class="start-icon" aria-hidden="true"></span>
+        <span id="startLabel">Start</span>
+      </button>
+      <button id="tapBtn" class="tap-btn" type="button">Tap</button>
+      <div class="volume">
+        <label for="volume">Volume</label>
+        <input id="volume" type="range" min="0" max="100" step="1" value="70">
+      </div>
+    </div>
+
+    <div class="tempo-controls">
+      <button id="bpmMinus" class="step-btn" type="button" aria-label="Decrease tempo">−</button>
+      <input id="bpmSlider" type="range" min="40" max="240" step="1" value="120" aria-label="Tempo in beats per minute">
+      <button id="bpmPlus" class="step-btn" type="button" aria-label="Increase tempo">+</button>
+    </div>
+
+    <div class="signature-row">
+      <span class="field-label">Signature</span>
+      <div id="signature" class="signature" role="group" aria-label="Time signature">
+        <button type="button" data-beats="2">2/4</button>
+        <button type="button" data-beats="3">3/4</button>
+        <button type="button" data-beats="4">4/4</button>
+        <button type="button" data-beats="6">6/8</button>
+      </div>
+    </div>
+
+    <p class="hint">Space starts or stops · tap the Tap button twice or more to set the tempo.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
